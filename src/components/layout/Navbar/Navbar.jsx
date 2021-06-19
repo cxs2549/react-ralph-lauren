@@ -1,4 +1,9 @@
 import { Link, NavLink } from "react-router-dom"
+import { SearchIcon } from "@heroicons/react/solid"
+import { HeartIcon } from "@heroicons/react/solid"
+import { UserIcon } from "@heroicons/react/solid"
+import { ShoppingBagIcon } from "@heroicons/react/solid"
+
 import styled from "styled-components"
 import MenuButton from "./Menu/MenuButton"
 import logo from "../../../assets/logo.png"
@@ -10,13 +15,30 @@ const StyledNav = styled.header`
         align-items: center;
         justify-content: space-between;
         position: relative;
-        background: #333;
+        background: #33333345;
         color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         @media screen and (min-width: 768px) {
             padding: 1rem 20px;
         }
         @media screen and (min-width: 1280px) {
             padding: 1rem 56px;
+        }
+        .activeTab {
+            position: relative;
+            transition: 1s ease;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: white;
+            }
         }
         #left,
         #right {
@@ -76,17 +98,16 @@ const Navbar = () => {
                         <MenuButton links={links} />
                     </div>
                     <div id="logo" className="absolute lg:static text-3xl flex items-center">
-                        <Link to="/">
+                        <NavLink to="/" end activeClassName="activeTab">
                             <img src={logo} alt="" className="w-56 " />
-                        </Link>
+                        </NavLink>
                     </div>
 
-                    <div className="hidden lg:flex whitespace-nowrap gap-5 xl:gap-10 items-center uppercase text-xs font-medium text-gray-400">
+                    <div className="hidden lg:flex whitespace-nowrap gap-5 xl:gap-10 items-center uppercase text-xs font-semibold text-gray-300">
                         {links.map((link) => (
                             <NavLink
-                                exact
                                 to={link.to}
-                                activeClassName="text-white"
+                                activeClassName="activeTab text-white"
                                 className="hover:text-gray-300"
                             >
                                 {link.name}
@@ -96,18 +117,18 @@ const Navbar = () => {
                 </div>
 
                 <div id="right">
-                    <div className="space-x-5 xl:space-x-6 flex items-center">
+                    <div className="space-x-5 xl:space-x-6 text-lg flex items-center">
                         <Link to="/search">
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <SearchIcon className="h-5 w-5" />
                         </Link>
                         <Link to="/wishlist" className="hidden md:block">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <HeartIcon className="h-5 w-5" />
                         </Link>
                         <Link to="/account" className="hidden md:block">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <UserIcon className="h-5 w-5" />
                         </Link>
                         <Link to="/bag">
-                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <ShoppingBagIcon className="h-5 w-5" />
                         </Link>
                     </div>
                 </div>

@@ -1,19 +1,24 @@
 import { useRoutes } from "react-router"
 import Navbar from "./components/layout/Navbar/Navbar"
+import Homepage from "./pages/Homepage"
 import Men from "./pages/Men"
 import Women from "./pages/Women"
-import ContactUs from "./pages/ContactUs"
+import KidsBaby from "./pages/KidsBaby"
 import Home from "./pages/Home"
-import Notifications from "./pages/Notifications"
-import Services from "./pages/Services"
+import Gifts from "./pages/Gifts"
+import RL from "./pages/RL"
+import Sale from "./pages/Sale"
 
 const routes = [
-    { path: "/", element: <Home /> },
-    { path: "/notifications", element: <Notifications /> },
+    { path: "/", element: <Homepage /> },
     { path: "/men", element: <Men /> },
     { path: "/women", element: <Women /> },
-    { path: "/contact-us", element: <ContactUs /> },
-    { path: "/services", element: <Services /> },
+    { path: "/kids-baby", element: <KidsBaby /> },
+    { path: "/home", element: <Home /> },
+    { path: "/gifts", element: <Gifts /> },
+    { path: "/world-of-rl", element: <RL /> },
+    { path: "/sale", element: <Sale /> },
+    { path: "/sale", element: <Sale /> },
 ]
 
 const App = () => {

@@ -7,7 +7,7 @@ const StyledMenu = styled.div`
     left: 0;
     width: 55%;
     height: 100vh;
-    background: #333;
+    background: #333333e6;
     color: #fff;
     z-index: 2;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
@@ -19,7 +19,7 @@ const StyledMenu = styled.div`
         display: flex;
         flex-direction: column;
         a {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
         }
     }
@@ -28,9 +28,9 @@ const StyledMenu = styled.div`
 const Menu = ({ open, close, links }) => {
     return (
         <StyledMenu open={open}>
-            <div className="text-gray-500">
+            <div className="text-gray-400">
                 {links.map((link) => (
-                    <NavLink activeClassName="text-white" onClick={close} to={link.to} key={link.name}>
+                    <NavLink activeClassName="text-white font-medium" onClick={close} to={link.to} key={link.name}>
                         {link.name}
                     </NavLink>
                 ))}
